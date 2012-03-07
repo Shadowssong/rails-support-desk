@@ -1,0 +1,77 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title= content_for?(:title) ? yield(:title) : "Supportdesk"
+    = csrf_meta_tags
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+    / Le styles
+    :css
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    = stylesheet_link_tag "application", :media => "all"
+
+    = javascript_include_tag "application"
+
+    :javascript
+      $(function() {
+        $('textarea').tinymce({
+          theme: 'advanced'
+            });
+      });
+    / Le fav and touch icons
+    %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
+    %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
+    %link{:href => "images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
+    %link{:href => "images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
+
+
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          =link_to "Support Desk", root_path, :class => "brand"
+          .container
+            %ul.nav
+              %li= link_to "Pages", pages_path
+              %li= link_to "Knowledge Base", categories_path 
+            %ul.nav.pull-right
+              - if current_user
+                %li.welcome_back 
+                  Welcome back, 
+                  =current_user.email
+                %li=link_to "Logout", destroy_user_session_path, :method => :delete
+              - else
+                %li=link_to "Login", user_session_path
+
+
+
+    .container
+
+      - flash.each do |key, value|
+        .centered_pill
+          = content_tag(:div, value, :class => "alert alert-#{key}")
+      .content
+        .row
+          .span3
+            .well.sidebar-nav
+              %h3 Navigation 
+              %ul.nav.nav-list
+                - Page.all.each do |p|
+                  %li= link_to p.title, p
+
+          .span9
+            = yield
+          .span1 &nbsp;
+          
+    
+      %footer
+        %p &copy; Psych 2012
+    /
+      Le javascript
+      \==================================================
+    / Placed at the end of the document so the pages load faster
+    = javascript_include_tag "application"

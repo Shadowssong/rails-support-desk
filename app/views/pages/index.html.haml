@@ -1,0 +1,17 @@
+.container
+  .row
+    .span6
+      %h1.pull-left Pages
+    .span4
+      - if current_user.try(:is_admin?)
+        = link_to "New Page", new_page_path, :class => 'btn btn-primary'
+    .offset2
+.container
+  - @pages.each do |p|
+    .row
+      .span6
+        %h3=link_to p.title, p
+      .span4
+        %h6=p.updated_at.strftime("%m/%d/%Y")
+      .offset2
+        

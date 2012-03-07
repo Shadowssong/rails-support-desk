@@ -1,0 +1,15 @@
+= render 'shared/breadcrumb'
+%h1 Knowledge Base 
+%table{:class => "table table-striped"}
+  %thead
+    %tr
+      %th
+        = t("activerecord.attributes.category.title", :default => t("activerecord.labels.title", :default => "Category"))
+      %th Entries 
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %td= link_to category.title, category_path(category)
+        %td= category.question_answers.count
+- if current_user.try(:is_admin?)
+  = link_to "New", new_category_path, :class => 'btn btn-primary'

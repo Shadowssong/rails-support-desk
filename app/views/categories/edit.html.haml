@@ -1,0 +1,3 @@
+= form_for @category, :url => category_path(@category), :html => { :class => "edit_category", :id => "edit_category" } do |f|
+  %input{:name => "_method", :type => "hidden", :value =>"put"}
+  = render :partial => "form", :locals => {:f => f}

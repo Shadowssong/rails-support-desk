@@ -1,0 +1,10 @@
+%ul.breadcrumb
+  %li
+    =link_to "Knowledge Base", categories_path
+  - if @category.present?
+    %span.divider /
+    %li=link_to @category.title, @category
+    - if @question_answer.present?
+      %span.divider /
+      %li=link_to @question_answer.question, category_question_answer_path(@category, @question_answer)
+ 

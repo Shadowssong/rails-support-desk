@@ -1,0 +1,16 @@
+%table{:class => "table table-striped"}
+  %thead
+    %tr
+      %th
+        = t("activerecord.attributes.question_answer.question", :default => t("activerecord.labels.question", :default => "Question"))
+      %th Views
+      %th Last updated
+  %tbody
+    - @question_answers.each do |question_answer|
+      %tr
+        %td= link_to question_answer.question, category_question_answer_path(@category, question_answer)
+        %td= question_answer.views 
+        %td= time_ago_in_words(question_answer.updated_at)+ " ago " 
+
+- if current_user.try(:is_admin?)
+  = link_to "New", new_question_answer_path, :class => 'btn btn-primary'

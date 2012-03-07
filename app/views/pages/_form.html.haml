@@ -1,0 +1,17 @@
+.clearfix
+  = f.label :title, t("activerecord.attributes.page.title", :default => "Title"), :class => :label
+  .input
+    = f.text_field :title, :class => 'text_field'
+.clearfix
+  = f.label :body, t("activerecord.attributes.page.body", :default => "Body"), :class => :label
+  .input
+    = f.text_area :body, :class => 'text_area'
+.clearfix
+  = f.label :slug, t("activerecord.attributes.page.slug", :default => "Slug"), :class => :label
+  .input
+    = f.text_field :slug, :class => 'text_field'
+
+.form-actions
+  %button{:class => "btn primary", :type => "submit"} Save
+  or
+  = link_to "Cancel", pages_path
