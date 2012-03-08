@@ -5,12 +5,19 @@ describe Page do
     @page = Page.create(:title => "foobar", :parent_id => nil)
   end
 
+  context "Page scope for showing as something that can be marked as parent" do
+    it "should show a page that can be a parent" do
+      Page.find_parents.include?(@page).should be_true
+    end
+    it "should not show a page as a parent that is a child" do
+      @page.parent_id = 1
+      @page.save
+      Page.find_parents.include?(@page).should be_false
+    end
+  end
+
   context "Pages having children" do
     it "should return true if a page has children" do
-      # hereo
-      # so this would ust create a page, no need to assign it to a varaible
-      # if you do @page then it will overwrite the class variable set in the before part
-      # so now set the parent id to the @page id
       Page.create(:title => "fewbar", :parent_id => @page.id)
       @page.has_children?.should be_true
     end

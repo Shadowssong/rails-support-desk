@@ -3,6 +3,8 @@ class Page < ActiveRecord::Base
   friendly_id :title, use: :slugged
   has_many :children, :class_name => "Page", :foreign_key => "parent_id"
 
+  scope :find_parents, where(:parent_id => nil)
+
   def has_children?
     if children.count > 0 
       true

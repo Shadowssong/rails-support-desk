@@ -60,8 +60,9 @@
             .well.sidebar-nav
               %h3 Navigation 
               %ul.nav.nav-list
-                - Page.all.each do |p|
+                - Page.find_parents.each do |p|
                   %li= link_to p.title, p
+                  =display_children(p) if p.has_children?
 
           .span9
             = yield
