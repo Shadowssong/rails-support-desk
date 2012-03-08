@@ -1,17 +1,25 @@
 .container
   .row
-    .span6
+    .span4
       %h1.pull-left Pages
     .span4
       - if current_user.try(:is_admin?)
         = link_to "New Page", new_page_path, :class => 'btn btn-primary'
-    .offset2
+    .offset4
 .container
-  - @pages.each do |p|
+  - Page.find_parents.each do |p|
     .row
-      .span6
+      .span4
         %h3=link_to p.title, p
       .span4
         %h6=p.updated_at.strftime("%m/%d/%Y")
-      .offset2
+      .offset4
+    - if p.has_children? 
+      - p.children.each do |child|
+        .row
+          .span2.offset1
+            =link_to child.title, child
+          .span2.offset1
+            %h6=p.updated_at.strftime("%m/%d/%Y")
+          .offset4
         

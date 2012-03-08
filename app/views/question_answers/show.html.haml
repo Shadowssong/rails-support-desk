@@ -7,6 +7,6 @@
 
 - if current_user.try(:is_admin?)
   .form-actions
-  = link_to "Back", question_answers_path, :class => 'btn'
+  = link_to "Back", category_path(@category), :class => 'btn'
   = link_to "Edit", edit_question_answer_path(@question_answer), :class => 'btn'
   = link_to "Delete", question_answer_path(@question_answer), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn'

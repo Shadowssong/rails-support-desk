@@ -1,6 +1,6 @@
 module PagesHelper
   def display_children(p)
-    output = "<ul>"
+    output = "<ul class='subpage' id='subnav-#{p.id}'>"
     p.children.each do |page|
       output << "<li>" + link_to(page.title, page) + "</li>"
     end

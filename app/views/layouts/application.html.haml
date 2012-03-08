@@ -16,12 +16,6 @@
 
     = javascript_include_tag "application"
 
-    :javascript
-      $(function() {
-        $('textarea').tinymce({
-          theme: 'advanced'
-            });
-      });
     / Le fav and touch icons
     %link{:href => "images/favicon.ico", :rel => "shortcut icon"}/
     %link{:href => "images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
@@ -42,7 +36,7 @@
               - if current_user
                 %li.welcome_back 
                   Welcome back, 
-                  =current_user.email
+                  =current_user.email.split('@').first
                 %li=link_to "Logout", destroy_user_session_path, :method => :delete
               - else
                 %li=link_to "Login", user_session_path
@@ -61,7 +55,8 @@
               %h3 Navigation 
               %ul.nav.nav-list
                 - Page.find_parents.each do |p|
-                  %li= link_to p.title, p
+                  %li 
+                    %h4= link_to p.title, p
                   =display_children(p) if p.has_children?
 
           .span9
