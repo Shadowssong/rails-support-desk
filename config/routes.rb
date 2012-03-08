@@ -1,5 +1,9 @@
 Supportdesk::Application.routes.draw do
-  resources :question_answers
+  resources :question_answers do
+    collection do
+      post 'search'
+    end
+  end
 
   resources :categories do
     resources :question_answers

@@ -1,7 +1,11 @@
 class QuestionAnswersController < ApplicationController
   # GET /question_answers
   # GET /question_answers.json
-  after_filter :update_views
+  after_filter :update_views, :except => :search
+  def search
+    query = params[:q]
+    @question_answers = QuestionAnswer.where{(question=~ "%#{query}%")|(answer=~ "%#{query}%")}
+  end
 
   def index
     @question_answers = QuestionAnswer.all
@@ -39,19 +43,14 @@ class QuestionAnswersController < ApplicationController
     @question_answer = QuestionAnswer.find(params[:id])
   end
 
-  # POST /question_answers
-  # POST /question_answers.json
   def create
     @question_answer = QuestionAnswer.new(params[:question_answer])
 
-    respond_to do |format|
-      if @question_answer.save
-        format.html { redirect_to @question_answer, notice: 'Question answer was successfully created.' }
-        format.json { render json: @question_answer, status: :created, location: @question_answer }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @question_answer.errors, status: :unprocessable_entity }
-      end
+    if @question_answer.save
+      flash[:notice] = 'Question answer was successfully created.' 
+      redirect_to category_question_answer_path(@question_answer.category, @question_answer) 
+    else
+      render action: "new"
     end
   end
 

@@ -12,6 +12,6 @@
     = f.text_area :answer, :class => 'text_field'
 
 .form-actions
-  %button{:class => "btn primary", :type => "submit"} Save
+  = submit_tag "Submit", :class => "btn primary"
   or
   = link_to "Cancel", question_answers_path

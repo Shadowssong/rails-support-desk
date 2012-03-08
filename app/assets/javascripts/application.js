@@ -21,13 +21,13 @@ $(function() {
       // $('#subnav-' + $(this).attr('data')).slideDown();
 
       // });
-        $('textarea').tinymce({
-          theme: 'advanced',
-          skin : 'o2k7',
-          skin_variant: 'silver',
-          theme_advanced_toolbar_location: 'top',
-          theme_advanced_toolbar_align: 'left'
-
-        });
+        // $('textarea').tinymce({
+          // theme: 'advanced',
+          // skin : 'o2k7',
+          // skin_variant: 'silver',
+          // theme_advanced_toolbar_location: 'top',
+          // theme_advanced_toolbar_align: 'left'
+// 
+        // });
       });
         

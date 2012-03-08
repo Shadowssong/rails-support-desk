@@ -6,6 +6,7 @@ gem 'rails', '3.2.2'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'squeel'
 
 gem 'tinymce-rails'
 gem 'haml'
@@ -15,6 +16,7 @@ gem 'friendly_id'
 gem 'devise'
 group :development do
   gem 'rspec'
+  gem 'pry'
   gem 'rspec-rails'
 end
 
