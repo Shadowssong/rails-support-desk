@@ -13,4 +13,4 @@
         %td= time_ago_in_words(question_answer.updated_at)+ " ago " 
 
 - if current_user.try(:is_admin?)
-  = link_to "New", new_question_answer_path, :class => 'btn btn-primary'
+  = link_to "Add new article", new_question_answer_path, :class => 'btn btn-primary'

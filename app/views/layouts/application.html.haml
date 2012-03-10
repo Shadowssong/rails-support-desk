@@ -30,7 +30,7 @@
           =link_to "Support Desk", root_path, :class => "brand"
           .container
             %ul.nav
-              %li= link_to "Pages", pages_path
+              %li= link_to "Page Index", pages_path
               %li= link_to "Knowledge Base", categories_path 
             %ul.nav.pull-right
               %li 
@@ -66,7 +66,10 @@
           
     
       %footer
-        %p &copy; Psych 2012
+        %center
+          %h6
+            &copy; Company   
+            = Date.today.year
     /
       Le javascript
       \==================================================

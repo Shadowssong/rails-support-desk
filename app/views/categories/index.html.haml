@@ -12,8 +12,4 @@
         %td= link_to category.title, category_path(category)
         %td= category.question_answers.count
 - if current_user.try(:is_admin?)
-  = link_to "New", new_category_path, :class => 'btn btn-primary'
-.clearfix
-  = form_tag(search_question_answers_path, :class => "form-search") do 
-    = text_field_tag :q, nil, :placeholder => "Search Knowledge Base", :class => "input-medium search-query"
-    = submit_tag "Search", :class => "btn primary"
+  = link_to "Create new category", new_category_path, :class => 'btn btn-primary'

@@ -3,8 +3,6 @@
     .span4
       %h1.pull-left Pages
     .span4
-      - if current_user.try(:is_admin?)
-        = link_to "New Page", new_page_path, :class => 'btn btn-primary'
     .offset4
 .container
   - Page.find_parents.each do |p|
@@ -22,4 +20,5 @@
           .span2.offset1
             %h6=p.updated_at.strftime("%m/%d/%Y")
           .offset4
-        
+- if current_user.try(:is_admin?)
+  = link_to "Create new page", new_page_path, :class => 'btn btn-primary'

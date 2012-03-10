@@ -1,14 +1,20 @@
-%table{:class => "table table-striped"}
-  %thead
-    %tr
-      %th
-        = t("activerecord.attributes.question_answer.question", :default => t("activerecord.labels.question", :default => "Question"))
-      %th Views
-      %th Last updated
-  %tbody
-    - @question_answers.each do |question_answer|
-      - category = question_answer.category
+- if @question_answers.empty?
+  No results found for: 
+  = params[:q] 
+- else
+  %table{:class => "table table-striped"}
+    %thead
       %tr
-        %td= link_to question_answer.question, category_question_answer_path(category, question_answer)
-        %td= question_answer.views 
-        %td= time_ago_in_words(question_answer.updated_at)+ " ago " 
+        %th
+          = t("activerecord.attributes.question_answer.question", :default => t("activerecord.labels.question", :default => "Question"))
+        %th Category
+        %th Views
+        %th Last updated
+    %tbody
+      - @question_answers.each do |question_answer|
+        - category = question_answer.category
+        %tr
+          %td= link_to question_answer.question, category_question_answer_path(category, question_answer)
+          %td= link_to question_answer.category.title
+          %td= question_answer.views 
+          %td= time_ago_in_words(question_answer.updated_at)+ " ago " 
