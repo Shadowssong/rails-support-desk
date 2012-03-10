@@ -1,6 +1,12 @@
 body { 
     padding-top: 50px;
 }
+.smallerform { 
+    height: 20px !important; 
+    .input-medium { 
+        margin-top: 5px !important; 
+    }
+}
 .welcome_back { 
     padding-top: 10px; 
     color: #fff;

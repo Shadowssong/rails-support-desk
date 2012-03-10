@@ -14,6 +14,6 @@
 - if current_user.try(:is_admin?)
   = link_to "New", new_category_path, :class => 'btn btn-primary'
 .clearfix
-  = form_tag(search_question_answers_path) do 
-    = text_field_tag :q, 'Search'
+  = form_tag(search_question_answers_path, :class => "form-search") do 
+    = text_field_tag :q, nil, :placeholder => "Search Knowledge Base", :class => "input-medium search-query"
     = submit_tag "Search", :class => "btn primary"

@@ -33,10 +33,11 @@
               %li= link_to "Pages", pages_path
               %li= link_to "Knowledge Base", categories_path 
             %ul.nav.pull-right
+              %li 
+                = form_tag(search_question_answers_path, :class => "form-search smallerform") do
+                  = text_field_tag :q, nil, :placeholder => "Search Knowledge Base", :class => "input-medium search-query"
+                  = submit_tag "Search", :class => "btn primary"
               - if current_user
-                %li.welcome_back 
-                  Welcome back, 
-                  =current_user.email.split('@').first
                 %li=link_to "Logout", destroy_user_session_path, :method => :delete
               - else
                 %li=link_to "Login", user_session_path
