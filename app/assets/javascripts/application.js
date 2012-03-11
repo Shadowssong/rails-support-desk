@@ -14,20 +14,18 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
-//= require tinymce-jquery
 $(function() {
     // $('.subpage').hide();
     // $('.expandpage').bind('click', function() { 
-      // $('#subnav-' + $(this).attr('data')).slideDown();
+    // $('#subnav-' + $(this).attr('data')).slideDown();
 
-      // });
-        // $('textarea').tinymce({
-          // theme: 'advanced',
-          // skin : 'o2k7',
-          // skin_variant: 'silver',
-          // theme_advanced_toolbar_location: 'top',
-          // theme_advanced_toolbar_align: 'left'
-// 
-        // });
-      });
-        
+    // });
+    // $('textarea').tinymce({
+      // theme: 'advanced',
+      // skin : 'o2k7',
+      // skin_variant: 'silver',
+      // theme_advanced_toolbar_location: 'top',
+      // theme_advanced_toolbar_align: 'left'
+    // });
+});
+

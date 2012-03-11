@@ -61,7 +61,7 @@ class QuestionAnswersController < ApplicationController
 
     respond_to do |format|
       if @question_answer.update_attributes(params[:question_answer])
-        format.html { redirect_to @question_answer, notice: 'Question answer was successfully updated.' }
+        format.html { redirect_to category_question_answer_path(@question_answer.category, @question_answer), notice: 'Question answer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

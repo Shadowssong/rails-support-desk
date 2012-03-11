@@ -5,8 +5,7 @@
 
 = render 'question_answers/question_answers'
 
-.form-actions
 - if current_user.try(:is_admin?)
-  = link_to "Back", categories_path, :class => 'btn'
-  = link_to "Edit", edit_category_path(@category), :class => 'btn'
-  = link_to "Delete", category_path(@category), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn'
+  .form-actions
+    = link_to "Change Category Name", edit_category_path(@category), :class => 'btn btn-primary'
+    = link_to "Delete Category", category_path(@category), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn btn-primary'

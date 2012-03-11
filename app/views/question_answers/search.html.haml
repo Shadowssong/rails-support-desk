@@ -15,6 +15,6 @@
         - category = question_answer.category
         %tr
           %td= link_to question_answer.question, category_question_answer_path(category, question_answer)
-          %td= link_to question_answer.category.title
+          %td= link_to question_answer.category.title, question_answer.category
           %td= question_answer.views 
           %td= time_ago_in_words(question_answer.updated_at)+ " ago " 

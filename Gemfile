@@ -8,7 +8,7 @@ gem 'rails', '3.2.2'
 gem 'mysql2'
 gem 'squeel'
 
-gem 'tinymce-rails'
+gem 'rdiscount'
 gem 'haml'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'

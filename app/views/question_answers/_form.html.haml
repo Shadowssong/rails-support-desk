@@ -5,11 +5,11 @@
 .clearfix
   = f.label :question, t("activerecord.attributes.question_answer.question", :default => "Question"), :class => :label
   .input
-    = f.text_field :question, :class => 'text_field'
+    = f.text_field :question, :class => 'text_field span9'
 .clearfix
   = f.label :answer, t("activerecord.attributes.question_answer.answer", :default => "Answer"), :class => :label
   .input
-    = f.text_area :answer, :class => 'text_field'
+    = f.text_area :answer, :class => 'text_area span9'
 
 .form-actions
   = submit_tag "Submit", :class => "btn primary"

@@ -1,11 +1,12 @@
 %h2= @page.title
-%p= raw(@page.body)
+%p
+  :markdown
+    #{@page.body}
 %h6
   Last updated
   = time_ago_in_words(@page.updated_at)+ " ago " 
 
-.form-actions
-  = link_to "Back", pages_path, :class => 'btn'
-  - if current_user.try(:is_admin?)
-    = link_to "Edit", edit_page_path(@page), :class => 'btn'
-    = link_to "Delete", page_path(@page), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn'
+- if current_user.try(:is_admin?)
+  .form-actions
+    = link_to "Edit Page", edit_page_path(@page), :class => 'btn btn-primary'
+    = link_to "Delete Page", page_path(@page), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn btn-primary'
