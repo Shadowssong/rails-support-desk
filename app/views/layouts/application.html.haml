@@ -30,7 +30,6 @@
           =link_to "Support Desk", root_path, :class => "brand"
           .container
             %ul.nav
-              %li= link_to "Page Index", pages_path
               %li= link_to "Knowledge Base", categories_path 
             %ul.nav.pull-right
               %li 
@@ -39,8 +38,14 @@
                   = submit_tag "Search", :class => "btn primary"
               - if current_user
                 %li=link_to "Logout", destroy_user_session_path, :method => :delete
+                .icon-user.icon-white.logout
+                - if current_user.try(:is_admin?)
+                  .icon-star-empty.icon-white.logout
+                - else
+                  .icon-lock.icon-white.logout
               - else
                 %li=link_to "Login", user_session_path
+                .icon-user.icon-white.logout
 
 
 
@@ -70,6 +75,8 @@
           %h6
             &copy; Company   
             = Date.today.year
+            |
+            = link_to "Site Map", pages_path
     /
       Le javascript
       \==================================================
