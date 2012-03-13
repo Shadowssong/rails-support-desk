@@ -12,6 +12,5 @@
     = f.text_area :body, :class => 'text_area span9'
 
 .form-actions
-  %button{:class => "btn primary", :type => "submit"} Save
-  or
-  = link_to "Cancel", pages_path
+  %button{:class => "btn btn-primary", :type => "submit"} Save
+  = link_to "Cancel", pages_path, :class => "btn btn-danger"

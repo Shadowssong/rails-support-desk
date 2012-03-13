@@ -74,10 +74,11 @@ class QuestionAnswersController < ApplicationController
   # DELETE /question_answers/1.json
   def destroy
     @question_answer = QuestionAnswer.find(params[:id])
+    category = @question_answer.category
     @question_answer.destroy
 
     respond_to do |format|
-      format.html { redirect_to question_answers_url }
+      format.html { redirect_to category }
       format.json { head :no_content }
     end
   end

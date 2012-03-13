@@ -8,7 +8,10 @@
   %tbody
     - @question_answers.each do |question_answer|
       %tr
-        %td= link_to question_answer.question, category_question_answer_path(@category, question_answer)
+        - if question_answer.question.empty?
+          %td= link_to "Blank", category_question_answer_path(@category, question_answer)
+        - else
+          %td= link_to question_answer.question, category_question_answer_path(@category, question_answer)
         %td= question_answer.views 
         %td= time_ago_in_words(question_answer.updated_at)+ " ago " 
 

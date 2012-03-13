@@ -11,7 +11,6 @@
         %h3=link_to p.title, p
       .span4
         %h6
-          Last updated
           = time_ago_in_words(p.updated_at)+ " ago "
       .offset4
     - if p.has_children? 
@@ -21,7 +20,6 @@
             =link_to child.title, child
           .span2.offset1
             %h6
-              Last updated
               = time_ago_in_words(child.updated_at)+ " ago "
           .offset4
 - if current_user.try(:is_admin?)

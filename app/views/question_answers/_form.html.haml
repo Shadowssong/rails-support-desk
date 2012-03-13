@@ -1,3 +1,10 @@
+- if @question_answer.errors.any?
+  .alert.alert-error
+    %h3
+      %ul
+        - @question_answer.errors.full_messages.each do |msg|
+          %li= msg
+
 .clearfix
   = f.label :category_id, t("activerecord.attributes.question_answer.category_id", :default => "Category"), :class => :label
   .input
@@ -12,6 +19,5 @@
     = f.text_area :answer, :class => 'text_area span9'
 
 .form-actions
-  = submit_tag "Submit", :class => "btn primary"
-  or
-  = link_to "Cancel", question_answers_path
+  = submit_tag "Submit", :class => "btn btn-primary"
+  = link_to "Cancel", question_answers_path, :class => "btn btn-danger"

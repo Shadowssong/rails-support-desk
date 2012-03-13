@@ -10,4 +10,4 @@
 - if current_user.try(:is_admin?)
   .form-actions
     = link_to "Edit Article", edit_question_answer_path(@question_answer), :class => 'btn btn-primary'
-    = link_to "Delete Article", question_answer_path(@question_answer), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn btn-primary'
+    = link_to "Delete Article", question_answer_path(@question_answer), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn btn-danger'
