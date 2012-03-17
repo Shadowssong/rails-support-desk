@@ -1,9 +1,6 @@
 %h1 Welcome to the Support Desk
 %h6 Find me in app/views/dashboard/index.html.haml
-%h3 Alerts and warnings:
-%p - SOMETHING HERE???????
-%p
-%h3 Most recently updated articles:
+%h3 Most recently updated articles
 = render :partial => 'shared/kb', :locals => {:qa => QuestionAnswer.most_recent}
-%h3 Most viewed articles:
+%h3 Most viewed articles
 = render :partial => 'shared/kb', :locals => {:qa => QuestionAnswer.top_viewed}

@@ -32,7 +32,7 @@
             %ul.nav
               %li= link_to "Knowledge Base", categories_path 
               %li= link_to "Webmail", "http://webmail.psy.fsu.edu", :target => "blank"
-              %li= link_to "Contact Us"
+              %li= link_to "Contact Us", Page.find_by_slug("contact-us")
             %ul.nav.pull-right
               %li 
                 = form_tag(search_question_answers_path, :class => "form-search smallerform") do
@@ -66,21 +66,41 @@
                   %li 
                     %h4= link_to p.title, p
                   =display_children(p) if p.has_children?
-
+            .well.sidebar-nav.mcaffee
+              %h3 Current Threats
+              %h6 Courtesy of Mcafee
+              :plain
+                <script src="http://securityalerts.mcafee.com/mcalerts/en-us/AlertConstant.js"></script>
+                <script src="http://securityalerts.mcafee.com/mcalerts/en-us/ResourceFile.js"></script>
+                <script src="http://securityalerts.mcafee.com/mcalerts/AlertDisplay.js"></script>
+                <script>
+                  dspylogolnk = 0;
+                  lnklogo = "";
+                  dsplyrec = 0;
+                  dsplyrem = 0;
+                  dsplysrc = 0;
+                  colbor = "#F5F5F5";
+                  colbgc = "#F5F5F5";
+                  DisplayMcAfeeAlerts();
+                </script>
           .span9
             = yield
           .span1 &nbsp;
-          
-    
+
+
       %footer
         %center
           %h6
+            [
             &copy; Company   
             = Date.today.year
             |
+            .icon-info-sign
             = link_to "Site Map", pages_path
             |
-            = link_to "Contact Us"
+            .icon-user
+            = link_to "Contact Us", Page.find_by_slug("contact-us")
+            ]
     /
       Le javascript
       \==================================================

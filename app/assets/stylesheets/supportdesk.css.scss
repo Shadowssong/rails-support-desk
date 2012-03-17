@@ -11,6 +11,10 @@ body {
     margin-top: 10px;
 }
 
+.mcaffee img:first-child, .mcaffee .title { 
+    display: none;
+    visibility: hidden; 
+}
 
 li { 
     list-style: none;
