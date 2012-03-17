@@ -31,6 +31,8 @@
           .container
             %ul.nav
               %li= link_to "Knowledge Base", categories_path 
+              %li= link_to "Webmail", "http://webmail.psy.fsu.edu", :target => "blank"
+              %li= link_to "Contact Us"
             %ul.nav.pull-right
               %li 
                 = form_tag(search_question_answers_path, :class => "form-search smallerform") do
@@ -77,6 +79,8 @@
             = Date.today.year
             |
             = link_to "Site Map", pages_path
+            |
+            = link_to "Contact Us"
     /
       Le javascript
       \==================================================

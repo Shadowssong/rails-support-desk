@@ -4,6 +4,5 @@
     = f.text_field :title, :class => 'text_field'
 
 .form-actions
-  %button{:class => "btn primary", :type => "submit"} Save
-  or
-  = link_to "Cancel", categories_path
+  %button{:class => "btn btn-primary", :type => "submit"} Create Category
+  = link_to "Cancel", categories_path, :class => "btn btn-danger"

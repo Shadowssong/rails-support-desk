@@ -1,4 +1,9 @@
-%h1 Welcome
-%p Find me in app/views/dashboard/index.html.haml
-%p Please browse or search the Knowledge Base for questions
-%p Or use our navigations to find a solution to your problem
+%h1 Welcome to the Support Desk
+%h6 Find me in app/views/dashboard/index.html.haml
+%h3 Alerts and warnings:
+%p - SOMETHING HERE???????
+%p
+%h3 Most recently updated articles:
+= render :partial => 'shared/kb', :locals => {:qa => QuestionAnswer.most_recent}
+%h3 Most viewed articles:
+= render :partial => 'shared/kb', :locals => {:qa => QuestionAnswer.top_viewed}
