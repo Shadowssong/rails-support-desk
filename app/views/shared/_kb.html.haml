@@ -1,15 +1,9 @@
 %table{:class => "table table-condense"}
   %thead
     %tr
-      %th Question 
-      %th Category 
-      %th Views
-      %th Last Updated
+      %th 
   %tbody
     - qa.each do |q|
       - category = q.category
       %tr
         %td= link_to q.question, category_question_answer_path(category, q)
-        %td= link_to q.category.title, q.category
-        %td= q.views
-        %td= time_ago_in_words(q.updated_at) + " ago"

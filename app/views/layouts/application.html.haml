@@ -67,22 +67,9 @@
                     %h4= link_to p.title, p
                   =display_children(p) if p.has_children?
             .well.sidebar-nav.mcaffee
-              %h3 Current Threats
-              %h6 Courtesy of Mcafee
-              :plain
-                <script src="http://securityalerts.mcafee.com/mcalerts/en-us/AlertConstant.js"></script>
-                <script src="http://securityalerts.mcafee.com/mcalerts/en-us/ResourceFile.js"></script>
-                <script src="http://securityalerts.mcafee.com/mcalerts/AlertDisplay.js"></script>
-                <script>
-                  dspylogolnk = 0;
-                  lnklogo = "";
-                  dsplyrec = 0;
-                  dsplyrem = 0;
-                  dsplysrc = 0;
-                  colbor = "#F5F5F5";
-                  colbgc = "#F5F5F5";
-                  DisplayMcAfeeAlerts();
-                </script>
+              %h3 Top Articles 
+              %h6 Most viewed KB articles 
+              = render :partial => "shared/kb", :locals => {:qa => QuestionAnswer.top_viewed}
           .span9
             = yield
           .span1 &nbsp;
