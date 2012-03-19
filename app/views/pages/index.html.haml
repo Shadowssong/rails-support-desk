@@ -1,27 +1,25 @@
 .container
-  .row
+  .row.show-grid
     .span4
       %h1.pull-left Pages
     .span4
     .offset4
 .container
   - Page.find_parents.each do |p|
-    .row
+    .row.show-grid
       .span4
-        %h3=link_to p.title, p
-      .span4
-        %h6
-          = time_ago_in_words(p.updated_at)+ " ago "
+        .bumptop
+          %span.label=link_to p.title, p
       .offset4
     - if p.has_children? 
       - p.children.each do |child|
-        .row
-          .span2.offset1
-            =link_to child.title, child
-          .span2.offset1
-            %h6
-              = time_ago_in_words(child.updated_at)+ " ago "
+        .row.show-grid
+          .span2.bump
+            .bumptop
+              .icon-share-alt
+              %span.label=link_to child.title, child
           .offset4
+              
 - if current_user.try(:is_admin?)
   .form-actions
     = link_to "Create new page", new_page_path, :class => 'btn btn-primary'

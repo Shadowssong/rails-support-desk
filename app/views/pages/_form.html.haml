@@ -10,6 +10,12 @@
   = f.label :body, t("activerecord.attributes.page.body", :default => "Body"), :class => :label
   .input
     = f.text_area :body, :class => 'text_area span9'
+.clearfix
+  = f.label :attachment, "attachment"
+  .input
+    = f.file_field :attachable
+- f.fields_for :attachments do |builder| 
+  = render 'shared/attachments', :f => builder 
 
 .form-actions
   %button{:class => "btn btn-primary", :type => "submit"} Save

@@ -19,8 +19,6 @@
 body { 
     padding-top: 50px;
     background-color: #f1f1d4;
-
-    @include link-body;
 }
 
 
@@ -43,8 +41,6 @@ body {
     @include link-headers;
 }
 
-.sidebar-nav { 
-}
 
 .smallerform { 
     height: 20px !important; 
@@ -56,11 +52,6 @@ body {
     margin-top: 10px;
 }
 
-.mcaffee img:first-child, .mcaffee .title { 
-    display: none;
-    visibility: hidden; 
-}
-
 li { 
     list-style: none;
 }
@@ -68,4 +59,20 @@ li {
 .welcome_back { 
     padding-top: 10px; 
     color: #fff;
+}
+
+.bump {
+    padding-left: 30px;
+}
+
+.bumptop { 
+    margin-top: 3px; 
+}
+.label {
+    a { 
+        color: #FFFFFF !important; 
+        &:hover { 
+            color: #CC0000 !important;
+        }
+      }
 }
