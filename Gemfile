@@ -14,6 +14,7 @@ gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 gem 'friendly_id'
 gem 'devise'
+gem 'carrierwave'
 group :development do
   gem 'rspec'
   gem 'pry'
